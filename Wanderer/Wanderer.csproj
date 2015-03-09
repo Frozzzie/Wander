@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2AB1921-7E02-470E-A13F-BCE61B5693F4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wanderer</RootNamespace>
+    <AssemblyName>Wanderer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr4.Runtime.net35">
+      <HintPath>..\packages\MoonSharp.0.7.0.1\lib\Antlr4.Runtime.net35.dll</HintPath>
+    </Reference>
+    <Reference Include="MoonSharp.Interpreter">
+      <HintPath>..\packages\MoonSharp.0.7.0.1\lib\MoonSharp.Interpreter.dll</HintPath>
+    </Reference>
+    <Reference Include="MoonSharp.RemoteDebugger">
+      <HintPath>..\packages\MoonSharp.Debugger.0.7.0.1\lib\MoonSharp.RemoteDebugger.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>JSoN Dot NET\Bin\Net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SdlDotNet, Version=6.1.0.0, Culture=neutral, PublicKeyToken=26ad4f7e10c61408, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\SdlDotNet\bin\SdlDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BattleInterfaces\BattleInterface.cs" />
+    <Compile Include="BattleInterfaces\BattleStates\BattleState.cs" />
+    <Compile Include="BattleInterfaces\ConsoleInterface.cs" />
+    <Compile Include="Counters\Counter.cs" />
+    <Compile Include="Counters\FireCounter.cs" />
+    <Compile Include="Counters\PoisonCounter.cs" />
+    <Compile Include="CreatureMaker\EditCreature.xaml.cs">
+      <DependentUpon>EditCreature.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Creatures\AICreature.cs" />
+    <Compile Include="Creatures\Creature.cs" />
+    <Compile Include="Creatures\Powers\Power.cs" />
+    <Compile Include="Creatures\Powers\PowerVM.cs" />
+    <Compile Include="Creatures\Powers\ScriptPower.cs" />
+    <Compile Include="Creatures\Powers\SnakeBite.cs" />
+    <Compile Include="Creatures\Powers\Strike.cs" />
+    <Compile Include="Creatures\Powers\TargetingInformation.cs" />
+    <Compile Include="Creatures\Stats\BaseStats\ConstitutionStat.cs" />
+    <Compile Include="Creatures\Stats\BaseStats\DexterityStat.cs" />
+    <Compile Include="Creatures\Stats\BaseStats\IntelligenceStat.cs" />
+    <Compile Include="Creatures\Stats\BaseStats\ModifierStat.cs" />
+    <Compile Include="Creatures\Stats\BaseStats\PerceptionStat.cs" />
+    <Compile Include="Creatures\Stats\BaseStats\StrengthStat.cs" />
+    <Compile Include="Creatures\Stats\BaseStats\WisdomStat.cs" />
+    <Compile Include="Creatures\Stats\Buff.cs" />
+    <Compile Include="Creatures\Stats\DerivedStat.cs" />
+    <Compile Include="Creatures\Stats\DerivedStats\DamageStat.cs" />
+    <Compile Include="Creatures\Stats\DerivedStats\HealthStat.cs" />
+    <Compile Include="Creatures\Stats\DerivedStats\Initiative.cs" />
+    <Compile Include="Creatures\Stats\DerivedStats\MaxHealth.cs" />
+    <Compile Include="Creatures\Stats\DerivedStats\Speed.cs" />
+    <Compile Include="Creatures\Stats\Stat.cs" />
+    <Compile Include="Creatures\Stats\StatusResistances\IResistance.cs" />
+    <Compile Include="Creatures\Stats\StatusResistances\PoisonResistance.cs" />
+    <Compile Include="Creatures\Stats\StatusStats\IStatus.cs" />
+    <Compile Include="Creatures\Stats\StatusStats\Poison.cs" />
+    <Compile Include="EntityEngine\CommandInterface.cs" />
+    <Compile Include="EntityEngine\EntityEngine.cs" />
+    <Compile Include="EntityEngine\IDataHolder.cs" />
+    <Compile Include="EntityEngine\IGameEntity.cs" />
+    <Compile Include="GameComponents\BattleComponents\Battle.cs" />
+    <Compile Include="GameComponents\BattleComponents\Player.cs" />
+    <Compile Include="GameComponents\BattleComponents\TurnOrderManager.cs" />
+    <Compile Include="GameComponents\Encounter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\BattleScreen.cs" />
+    <Compile Include="Screens\Screen.cs" />
+    <Compile Include="ScriptInterp\LuaBattleInterface.cs" />
+    <Compile Include="ScriptInterp\LuaCreatureInterface.cs" />
+    <Compile Include="ScriptInterp\LuaInterface.cs" />
+    <Compile Include="ScriptInterp\LuaPowerInterface.cs" />
+    <Compile Include="ScriptInterp\LuaTargetingInformationInterface.cs" />
+    <Compile Include="Test\TestCreatures.cs" />
+    <Compile Include="UserInfaceManagement\BorderUIElement.cs" />
+    <Compile Include="UserInfaceManagement\SelectableListUIElement.cs" />
+    <Compile Include="UserInfaceManagement\TextUIElement.cs" />
+    <Compile Include="UserInfaceManagement\UIElement.cs" />
+    <Compile Include="UserInfaceManagement\UserInterface.cs" />
+    <Compile Include="Utility\Vector2.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <EmbeddedResource Include="Fonts\ARIAL.TTF" />
+    <EmbeddedResource Include="Fonts\ARIALBD.TTF" />
+    <EmbeddedResource Include="Fonts\ARIALBI.TTF" />
+    <EmbeddedResource Include="Fonts\ARIALI.TTF" />
+    <EmbeddedResource Include="Fonts\ARIBLK.TTF" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Sprites\gardensnek.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Sprites\revolver.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Sprites\wanderer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="CreatureMaker\EditCreature.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MoonSharp.Interpreter.pdb" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
