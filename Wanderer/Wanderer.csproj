@@ -62,6 +62,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BattleInterfaces\Battle.cs" />
     <Compile Include="BattleInterfaces\BattleInterface.cs" />
     <Compile Include="BattleInterfaces\BattleStates\BattleState.cs" />
     <Compile Include="BattleInterfaces\ConsoleInterface.cs" />
@@ -105,7 +106,6 @@
     <Compile Include="GameComponents\BattleComponents\Battle.cs" />
     <Compile Include="GameComponents\BattleComponents\Player.cs" />
     <Compile Include="GameComponents\BattleComponents\TurnOrderManager.cs" />
-    <Compile Include="GameComponents\Encounter.cs" />
     <Compile Include="GameComponents\Gold.cs" />
     <Compile Include="GameComponents\Items\Bag.cs" />
     <Compile Include="GameComponents\Items\Equipment\Equipment.cs" />
